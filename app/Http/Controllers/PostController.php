@@ -10,6 +10,17 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     /**
+     * Display a listing of all posts (public blog view).
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function allPosts()
+    {
+        $posts = Post::with('user')->latest()->paginate(10);
+        return view('posts.posts', compact('posts'));
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -61,7 +72,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $this->authorize('view', $post);
+        // Only authorize if user is authenticated and trying to access via posts.show route
+        if (auth()->check() && request()->route()->getName() === 'posts.show') {
+            $this->authorize('view', $post);
+        }
         return view('posts.show', compact('post'));
     }
 

@@ -1,26 +1,28 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('All Posts') }}
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <!-- Search Bar -->
+            <div class="mb-6">
+                <div class="relative max-w-lg mx-auto">
+
+                    <input type="text" id="searchInput" placeholder="Search posts by title, content, or author..." class="w-full py-3 pl-12 pr-4 text-gray-900 placeholder-gray-500 transition-all duration-200 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </div>
+
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-6 bg-white border-b border-gray-200" id="postsContainer">
                     @forelse ($posts as $post)
-                        <div class="mb-6 overflow-hidden transition-shadow duration-300 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                        <div class="mb-6 overflow-hidden transition-shadow duration-300 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md" data-post>
                             <!-- Card Header -->
                             <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
                                 <div class="flex items-start justify-between">
                                     <div class="flex-1">
-                                        <a href="{{ route('posts.show', $post) }}" class="text-xl font-bold text-gray-900 transition-colors duration-200 hover:text-blue-600">
+                                        <a href="{{ route('blog.show', $post) }}" class="text-xl font-bold text-gray-900 transition-colors duration-200 hover:text-blue-600">
                                             {{ $post->title }}
                                         </a>
                                     </div>
                                     <div class="flex ml-4 space-x-2">
-                                        <a href="{{ route('posts.show', $post) }}" class="inline-flex items-center px-3 py-1 text-xs font-medium text-blue-800 transition-colors duration-200 bg-blue-100 rounded-full hover:bg-blue-200">
+                                        <a href="{{ route('blog.show', $post) }}" class="inline-flex items-center px-3 py-1 text-xs font-medium text-blue-800 transition-colors duration-200 bg-blue-100 rounded-full hover:bg-blue-200">
                                             <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -88,4 +90,34 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const postsContainer = document.getElementById('postsContainer');
+            const allPosts = postsContainer.innerHTML;
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                if (searchTerm === '') {
+                    postsContainer.innerHTML = allPosts;
+                    return;
+                }
+
+                const posts = postsContainer.querySelectorAll('[data-post]');
+                posts.forEach(post => {
+                    const title = post.querySelector('a').textContent.toLowerCase();
+                    const content = post.querySelector('.text-gray-600').textContent.toLowerCase();
+                    const author = post.querySelector('.font-medium').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || content.includes(searchTerm) || author.includes(searchTerm)) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </x-app-layout>

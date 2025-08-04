@@ -30,7 +30,8 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        return $user->id === $post->user_id || $user->isAdmin();
+        // All authenticated users can view any post
+        return true;
     }
 
     /**

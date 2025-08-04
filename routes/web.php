@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Public blog posts route - accessible to everyone
+Route::get('/blogs', [PostController::class, 'allPosts'])->name('blog.posts');
+Route::get('/blogs/{post}', [PostController::class, 'show'])->name('blog.show');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
@@ -39,7 +43,7 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
-    Route::get('/posts', [AdminController::class, 'posts'])->name('admin.posts');
+    Route::get('/blogs', [AdminController::class, 'posts'])->name('admin.posts');
 });
 
 require __DIR__.'/auth.php';
