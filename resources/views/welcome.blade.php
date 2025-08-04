@@ -16,7 +16,7 @@
             font-family: 'Nunito', sans-serif;
         }
         .bg-gradient-overlay {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(30, 64, 175, 0.6));
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(30, 64, 175, 0.4));
         }
         .animate-fade-in {
             animation: fadeIn 1s ease-in-out;
@@ -103,14 +103,7 @@
     </div>
     @endguest --}}
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400">
-                &copy; {{ date('Y') }} Laravel Blog. Built with ❤️ using Laravel v{{ Illuminate\Foundation\Application::VERSION }}
-            </p>
-        </div>
-    </footer>
+
 
 </body>
 </html>
