@@ -13,7 +13,7 @@
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-lg font-semibold">Recent Posts</h3>
-                            <a href="{{ route('posts.create') }}" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+                            <a href="{{ route('posts.create') }}" class="px-4 py-2 font-bold text-white rounded bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 hover:bg-blue-700">
                                 Create New Post
                             </a>
                         </div>

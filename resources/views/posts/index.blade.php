@@ -17,7 +17,7 @@
 
                     <div class="flex items-center justify-between mb-6">
                         <h3 class="text-lg font-semibold">My Blog Posts</h3>
-                        <a href="{{ route('posts.create') }}" class="inline-flex items-center px-4 py-2 font-medium text-white transition duration-200 bg-blue-600 rounded-lg shadow-sm hover:bg-blue-700">
+                        <a href="{{ route('posts.create') }}" class="inline-flex items-center px-4 py-2 font-medium text-white transition duration-200 rounded-lg shadow-sm bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 ">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                             </svg>
@@ -92,7 +92,7 @@
                             </svg>
                             <h3 class="mb-2 text-lg font-medium text-gray-900">No posts yet</h3>
                             <p class="mb-6 text-gray-500">Start sharing your thoughts with the world!</p>
-                            <a href="{{ route('posts.create') }}" class="inline-flex items-center px-6 py-3 text-base font-medium text-white transition-colors duration-200 bg-blue-600 border border-transparent rounded-lg hover:bg-blue-700">
+                            <a href="{{ route('posts.create') }}" class="inline-flex items-center px-6 py-3 text-base font-medium text-white transition-colors duration-200 border border-transparent rounded-lg bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600">
                                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>

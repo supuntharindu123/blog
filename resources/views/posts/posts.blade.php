@@ -14,7 +14,7 @@
                     @forelse ($posts as $post)
                         <div class="mb-6 overflow-hidden transition-shadow duration-300 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md" data-post>
                             <!-- Card Header -->
-                            <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+                            <div class="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-green-300 to-blue-300 ">
                                 <div class="flex items-start justify-between">
                                     <div class="flex-1">
                                         <a href="{{ route('blog.show', $post) }}" class="text-xl font-bold text-gray-900 transition-colors duration-200 hover:text-blue-600">
@@ -22,7 +22,7 @@
                                         </a>
                                     </div>
                                     <div class="flex ml-4 space-x-2">
-                                        <a href="{{ route('blog.show', $post) }}" class="inline-flex items-center px-3 py-1 text-xs font-medium text-blue-800 transition-colors duration-200 bg-blue-100 rounded-full hover:bg-blue-200">
+                                        <a href="{{ route('blog.show', $post) }}" class="inline-flex items-center px-3 py-1 text-xs font-medium text-white transition-colors duration-200 rounded-full bg-gradient-to-r from-green-400 to-blue-400 ">
                                             <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
@@ -73,7 +73,7 @@
                             <h3 class="mt-2 text-sm font-medium text-gray-900">No posts found</h3>
                             <p class="mt-1 text-sm text-gray-500">Get started by creating a new post.</p>
                             <div class="mt-6">
-                                <a href="{{ route('posts.create') }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700">
+                                <a href="{{ route('posts.create') }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600">
                                     <svg class="w-5 h-5 mr-2 -ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                     </svg>

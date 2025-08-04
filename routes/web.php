@@ -21,6 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Test route for gradient debugging
+Route::get('/test-gradient', function () {
+    return view('test-gradient');
+});
+
 // Public blog posts route - accessible to everyone
 Route::get('/blogs', [PostController::class, 'allPosts'])->name('blog.posts');
 Route::get('/blogs/{post}', [PostController::class, 'show'])->name('blog.show');
